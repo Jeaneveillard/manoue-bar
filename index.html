@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manoue Bar — Fort-Liberté, Haïti | Rhum, Bière & Soupe Giromon</title>
+  <meta name="description" content="Manoue Bar, le meilleur bar de Fort-Liberté, Haïti. Barbancourt, Prestige, Soupe Giromon chaque dimanche. Akote Place d'Armes." />
+  <meta name="keywords" content="Manoue Bar, Fort-Liberté, Haïti, bar, Barbancourt, Prestige, Soupe Giromon, Place d'Armes" />
+  <meta property="og:title" content="Manoue Bar — Fort-Liberté, Haïti" />
+  <meta property="og:description" content="Bwè fre, manje cho — louvri chak jou! Rhum Barbancourt, Prestige, Soupe Giromon dimanche." />
+  <meta property="og:image" content="images/hero_bg.png" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:   #C0392B;
+      --amber: #E8A020;
+      --gold:  #F5C842;
+      --deep:  #1E1008;
+      --cream: #FFF5E4;
+      --white: #FFFDF7;
+      --green: #1A7A40;
+      --gap:   12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--deep);
+      color: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════ STICKY HEADER ═══════════════ */
+    .top-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #1E1008CC;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid #FFFFFF0A;
+    }
+    .top-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      text-shadow: 0 0 20px #F5C84240;
+    }
+    .top-logo span { color: var(--white); }
+    .top-call {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green);
+      color: var(--white);
+      font-weight: 900;
+      font-size: 0.78rem;
+      padding: 8px 16px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      box-shadow: 0 4px 16px #1A7A4040;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .top-call:hover { transform: translateY(-2px); box-shadow: 0 8px 24px #1A7A4066; }
+
+    /* ═══════════════ HERO ═══════════════ */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('images/place_darmes.webp');
+      background-size: cover;
+      background-position: center 35%;
+      filter: brightness(0.72) saturate(1.1);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, #1E100800 20%, #1E100870 60%, #1E1008CC 100%);
+    }
+    .sun {
+      position: absolute;
+      top: -60px; left: 28%;
+      transform: translateX(-50%);
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFE06690 0%, #F5A62370 40%, #C0392B50 70%, transparent 100%);
+      box-shadow: 0 0 80px 20px #F5A62350, 0 0 200px 60px #C0392B20;
+      animation: sunrise 3s ease-out forwards;
+      z-index: 1;
+    }
+    @keyframes sunrise {
+      from { top: -200px; opacity: 0; }
+      to   { top: -50px;  opacity: 1; }
+    }
+    .sun::after {
+      content: '';
+      position: absolute; inset: -50px;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg, #F5C84212 10deg, transparent 20deg,
+        transparent 40deg, #F5C84212 50deg, transparent 60deg,
+        transparent 80deg, #F5C84212 90deg, transparent 100deg,
+        transparent 120deg, #F5C84212 130deg, transparent 140deg,
+        transparent 160deg, #F5C84212 170deg, transparent 180deg,
+        transparent 200deg, #F5C84212 210deg, transparent 220deg,
+        transparent 240deg, #F5C84212 250deg, transparent 260deg,
+        transparent 280deg, #F5C84212 290deg, transparent 300deg,
+        transparent 320deg, #F5C84212 330deg, transparent 340deg
+      );
+      border-radius: 50%;
+      animation: spin 40s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      padding: 0 24px 52px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--deep);
+      font-weight: 900;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+      animation: fadeUp 0.6s 0.5s ease-out both;
+    }
+    .hero-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 18vw, 9rem);
+      line-height: 0.88;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      text-shadow: 4px 4px 0 var(--red), 0 0 60px #FF6B3560;
+      animation: fadeUp 0.7s 0.7s ease-out both;
+    }
+    .hero-logo span {
+      display: block;
+      color: var(--gold);
+      text-shadow: 3px 3px 0 #7A5000, 0 0 40px #F5C84260;
+      font-size: 0.52em;
+      letter-spacing: 0.14em;
+    }
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.9rem, 3vw, 1.3rem);
+      color: #FFD580;
+      margin-top: 10px;
+      animation: fadeUp 0.7s 0.9s ease-out both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 20px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 5px;
+      opacity: 0.55;
+      animation: fadeUp 1s 1.4s ease-out both;
+    }
+    .scroll-hint span { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+    .scroll-dot {
+      width: 18px; height: 26px;
+      border: 1.5px solid var(--gold);
+      border-radius: 9px;
+      position: relative;
+    }
+    .scroll-dot::after {
+      content: '';
+      position: absolute;
+      width: 3px; height: 6px;
+      background: var(--gold);
+      border-radius: 2px;
+      top: 3px; left: 50%;
+      transform: translateX(-50%);
+      animation: scrollDot 1.5s ease-in-out infinite;
+    }
+    @keyframes scrollDot {
+      0%,100% { top: 3px; opacity: 1; }
+      80%      { top: 13px; opacity: 0; }
+    }
+
+    /* ═══════════════ INFO STRIP ═══════════════ */
+    .info-strip {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      background: #2A1A0A;
+      border-top: 1px solid #FFFFFF0A;
+      border-bottom: 1px solid #FFFFFF0A;
+    }
+    .info-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #C8A060;
+      border-right: 1px solid #FFFFFF08;
+    }
+    .info-pill:last-child { border-right: none; }
+    .info-pill .icon { font-size: 1.1rem; }
+
+    /* ═══════════════ BENTO SECTION ═══════════════ */
+    .bento-section {
+      padding: 48px 16px 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 900;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 6px;
+      padding-left: 4px;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 7vw, 3.2rem);
+      letter-spacing: 0.05em;
+      color: var(--white);
+      margin-bottom: 20px;
+      padding-left: 4px;
+    }
+
+    /* ═══════════════ BENTO GRID ═══════════════ */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: var(--gap);
+      grid-template-areas:
+        "barb     barb     prestige"
+        "barb     barb     coca    "
+        "couronne malta    fanta   "
+        "sevenup  aloe     kinanm  "
+        "gatorade eau      vin     "
+        "malt     malt     malt    "
+        "soupe    soupe    soupe   ";
+    }
+
+    /* ─── Base card ─── */
+    .bc {
+      border-radius: 18px;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 200px;
+      cursor: default;
+      border: 1px solid #FFFFFF08;
+      transition: transform 0.25s, box-shadow 0.25s;
+      background: #301C0C;
+    }
+    .bc:hover { transform: translateY(-4px) scale(1.01); }
+    .bc::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 18px;
+      background: var(--glow);
+      opacity: 0.7;
+    }
+
+    /* ─── Image pleine hauteur ─── */
+    .bc-icon {
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 58%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 10px;
+      z-index: 1;
+      transition: transform 0.25s;
+    }
+    .bc:hover .bc-icon { transform: scale(1.05); }
+
+    /* Image remplit toute la hauteur de la carte */
+    .bc-icon img {
+      height: 92%;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 6px 24px rgba(0,0,0,0.70));
+    }
+
+    /* Emoji (pas d'image) */
+    .bc-icon:not(:has(img)) {
+      font-size: 4rem;
+      align-items: flex-start;
+      padding-top: 16px;
+      padding-right: 14px;
+      width: auto;
+      right: 0;
+    }
+
+    /* Large card (Barbancourt) */
+    .bc.large .bc-icon {
+      width: 62%;
+      align-items: flex-end;
+      padding-bottom: 12px;
+      padding-right: 12px;
+    }
+    .bc.large .bc-icon img { height: 90%; width: auto; }
+
+    /* Tall card */
+    .bc.tall .bc-icon { width: 60%; }
+    .bc.tall .bc-icon img { height: 88%; }
+
+    /* Dégradé pour lisibilité du texte à gauche */
+    .bc::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right,
+        #301C0CEE 0%,
+        #301C0CCC 38%,
+        #301C0C44 60%,
+        transparent 100%);
+      border-radius: 18px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Texte limité à gauche, au-dessus du dégradé */
+    .bc-name, .bc-desc, .bc-tag { max-width: 58%; }
+
+    /* ─── Text ─── */
+    .bc-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      position: relative; z-index: 1;
+      line-height: 1;
+    }
+    .bc.large .bc-name { font-size: 2rem; }
+    .bc.tall  .bc-name { font-size: 1.6rem; }
+
+    .bc-desc {
+      font-size: 0.72rem;
+      color: #A89070;
+      margin-top: 4px;
+      line-height: 1.45;
+      position: relative; z-index: 1;
+    }
+    .bc.large .bc-desc { font-size: 0.82rem; color: #C8A888; max-width: 200px; }
+
+    .bc-tag {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative; z-index: 1;
+      width: fit-content;
+    }
+
+    /* ─── Grid areas ─── */
+    .bc-barb     { grid-area: barb;     --glow: radial-gradient(circle at 70% 30%, #C87010 0%, transparent 65%); }
+    .bc-prestige { grid-area: malt;     --glow: radial-gradient(circle at 50% 0%,  #1E3A9A 0%, transparent 70%); }
+    .bc-coca     { grid-area: coca;     --glow: radial-gradient(circle at 80% 80%, #C0392B 0%, transparent 70%); min-height: 0; }
+    .bc-couronne { grid-area: couronne; --glow: radial-gradient(circle at 30% 70%, #B89000 0%, transparent 70%); }
+    .bc-malta    { grid-area: malta;    --glow: radial-gradient(circle at 70% 30%, #7A4010 0%, transparent 70%); }
+    .bc-rhum     { grid-area: rhum;     --glow: radial-gradient(circle at 50% 80%, #D06010 0%, transparent 70%); }
+    .bc-fanta    { grid-area: fanta;    --glow: radial-gradient(circle at 30% 50%, #E06000 0%, transparent 70%); }
+    .bc-sevenup  { grid-area: sevenup;  --glow: radial-gradient(circle at 70% 30%, #006A20 0%, transparent 70%); }
+    .bc-aloe     { grid-area: aloe;     --glow: radial-gradient(circle at 50% 70%, #208050 0%, transparent 70%); }
+    .bc-kinanm   { grid-area: kinanm;   --glow: radial-gradient(circle at 30% 30%, #2A1A7A 0%, transparent 70%); }
+    .bc-gatorade { grid-area: gatorade; --glow: radial-gradient(circle at 70% 70%, #209800 0%, transparent 70%); }
+    .bc-eau      { grid-area: eau;      --glow: radial-gradient(circle at 50% 20%, #008AB0 0%, transparent 70%); }
+    .bc-malt     { grid-area: prestige; --glow: radial-gradient(circle at 20% 50%, #885000 0%, transparent 70%); }
+    .bc-vin      { grid-area: vin;      --glow: radial-gradient(circle at 80% 50%, #5A0830 0%, transparent 70%); }
+    .bc-soupe    { grid-area: soupe;    --glow: linear-gradient(135deg, #1A7A4030 0%, transparent 60%); min-height: 120px; }
+
+    /* hover glows */
+    .bc-barb:hover     { box-shadow: 0 16px 50px #C8701040; }
+    .bc-prestige:hover { box-shadow: 0 12px 40px #1E3A9A40; }
+    .bc-coca:hover     { box-shadow: 0 12px 40px #C0392B40; }
+    .bc-couronne:hover { box-shadow: 0 12px 40px #B8900040; }
+    .bc-malta:hover    { box-shadow: 0 12px 40px #7A401040; }
+    .bc-rhum:hover     { box-shadow: 0 12px 40px #D0601040; }
+    .bc-fanta:hover    { box-shadow: 0 12px 40px #E0600040; }
+    .bc-sevenup:hover  { box-shadow: 0 12px 40px #006A2040; }
+    .bc-aloe:hover     { box-shadow: 0 12px 40px #20805040; }
+    .bc-kinanm:hover   { box-shadow: 0 12px 40px #2A1A7A40; }
+    .bc-gatorade:hover { box-shadow: 0 12px 40px #20980040; }
+    .bc-eau:hover      { box-shadow: 0 12px 40px #008AB040; }
+    .bc-malt:hover     { box-shadow: 0 12px 40px #88500040; }
+    .bc-vin:hover      { box-shadow: 0 12px 40px #5A083040; }
+    .bc-soupe:hover    { box-shadow: 0 16px 50px #1A7A4050; }
+
+    /* Tag colors */
+    .bc-barb .bc-tag     { background: #C8701030; color: #FFBA60; border: 1px solid #C8701050; }
+    .bc-prestige .bc-tag { background: #1E3A9A30; color: #80AAFF; border: 1px solid #1E3A9A50; }
+    .bc-coca .bc-tag     { background: #C0392B28; color: #FF7060; border: 1px solid #C0392B45; }
+    .bc-couronne .bc-tag { background: #B8900028; color: #FFD060; border: 1px solid #B8900045; }
+    .bc-malta .bc-tag    { background: #7A401028; color: #D4903A; border: 1px solid #7A401045; }
+    .bc-rhum .bc-tag     { background: #D0601028; color: #FFA050; border: 1px solid #D0601045; }
+    .bc-fanta .bc-tag    { background: #E0600028; color: #FFA040; border: 1px solid #E0600045; }
+    .bc-sevenup .bc-tag  { background: #006A2028; color: #60E880; border: 1px solid #006A2045; }
+    .bc-aloe .bc-tag     { background: #20805028; color: #80D8A0; border: 1px solid #20805045; }
+    .bc-kinanm .bc-tag   { background: #2A1A7A28; color: #9080EE; border: 1px solid #2A1A7A45; }
+    .bc-gatorade .bc-tag { background: #20980028; color: #80E830; border: 1px solid #20980045; }
+    .bc-eau .bc-tag      { background: #008AB028; color: #60D8F8; border: 1px solid #008AB045; }
+    .bc-malt .bc-tag     { background: #88500028; color: #E0A060; border: 1px solid #88500045; }
+    .bc-vin .bc-tag      { background: #5A083028; color: #E060A0; border: 1px solid #5A083045; }
+    .bc-soupe .bc-tag    { background: #1A7A4028; color: #60E89A; border: 1px solid #1A7A4045; }
+
+    /* ─── Soupe card (special full-width) ─── */
+    .bc-soupe {
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+      padding: 28px 32px;
+    }
+    .bc-soupe .bc-icon {
+      position: relative;
+      top: unset; right: unset; bottom: unset;
+      width: auto;
+      font-size: 3.5rem;
+      flex-shrink: 0;
+      padding: 0;
+      transform: none !important;
+    }
+    .bc-soupe .bc-icon img {
+      height: 130px !important;
+      width: 130px !important;
+      object-fit: cover;
+      border-radius: 14px;
+    }
+    .bc-soupe .soupe-text { flex: 1; }
+    .bc-soupe .bc-name { font-size: 1.8rem; }
+    .bc-soupe .bc-desc { font-size: 0.82rem; color: #A8CCA0; max-width: 360px; }
+    .bc-soupe .sunday-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--gold);
+      background: #F5C84215;
+      border: 1px solid #F5C84230;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    /* Mobile bento (2 cols) */
+    @media (max-width: 560px) {
+      .bento {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "barb     barb    "
+          "prestige coca    "
+          "couronne malta   "
+          "fanta    sevenup "
+          "aloe     kinanm  "
+          "gatorade eau     "
+          "vin      vin     "
+          "malt     malt    "
+          "soupe    soupe   ";
+      }
+      .bc-icon img { height: 88%; width: auto; }
+      .bc.large .bc-icon img { height: 85%; }
+      .bc.tall  .bc-icon img { height: 85%; }
+      .bc-soupe { flex-direction: column; text-align: center; gap: 12px; }
+      .bc-soupe .sunday-badge { margin: 10px auto 0; }
+    }
+
+    /* ═══════════════ BOTTOM INFO GRID ═══════════════ */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap);
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px 16px;
+    }
+    @media (max-width: 560px) {
+      .info-grid { grid-template-columns: 1fr; }
+    }
+
+    .info-card {
+      background: #2E1C0C;
+      border: 1px solid #FFFFFF08;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    /* Location card */
+    .loc-map {
+      height: 130px;
+      background:
+        radial-gradient(circle at 50% 60%, #0B2D6B44 0%, transparent 60%),
+        linear-gradient(180deg, #10180E 0%, #0A0E0A 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      border-bottom: 1px solid #FFFFFF08;
+    }
+    .loc-map-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(#FFFFFF04 1px, transparent 1px),
+        linear-gradient(90deg, #FFFFFF04 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .map-pin {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 2px;
+      animation: pinBounce 2s ease-in-out infinite;
+      position: relative; z-index: 1;
+    }
+    @keyframes pinBounce {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-7px); }
+    }
+    .pin-head {
+      width: 32px; height: 32px;
+      background: var(--red);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      box-shadow: 0 0 18px #C0392B80;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pin-head::after { content: '🏪'; transform: rotate(45deg); font-size: 1rem; }
+    .pin-tail { width: 3px; height: 18px; background: linear-gradient(var(--red), transparent); border-radius: 2px; }
+
+    .loc-info { padding: 20px; }
+    .loc-row {
+      display: flex; align-items: flex-start;
+      gap: 12px; padding: 10px 0;
+      border-bottom: 1px solid #FFFFFF06;
+    }
+    .loc-row:last-child { border-bottom: none; }
+    .loc-ico {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0;
+    }
+    .loc-ico.r { background: #C0392B18; }
+    .loc-ico.a { background: #E8A02018; }
+    .loc-ico.b { background: #0B2D6B28; }
+    .loc-txt strong { display: block; font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 1px; }
+    .loc-txt span   { font-size: 0.75rem; color: #7A6A58; }
+
+    /* Contact card */
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      padding: 28px 24px;
+    }
+    .contact-card .c-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+    }
+    .contact-card .c-sub {
+      font-size: 0.75rem;
+      color: #6A5A48;
+      margin-top: -10px;
+    }
+    .call-btn {
+      display: flex;
+      align-items: center; justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--green), #0D4A20);
+      color: var(--white);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.08em;
+      padding: 18px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 8px 28px #1A7A4038;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #1A7A4040;
+    }
+    .call-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px #1A7A4060; }
+    .call-btn .ring { animation: ringPulse 2s ease-in-out infinite; }
+    @keyframes ringPulse {
+      0%,100%,40% { transform: rotate(0deg); }
+      10% { transform: rotate(-15deg); }
+      20% { transform: rotate(15deg); }
+      30% { transform: rotate(-10deg); }
+    }
+    .wa-note { text-align: center; font-size: 0.72rem; color: #3A2E22; }
+
+    /* ═══════════════ FOOTER ═══════════════ */
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      margin-top: var(--gap);
+      background: #06040200;
+      border-top: 1px solid #FFFFFF06;
+    }
+    footer .f-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      color: var(--amber);
+      letter-spacing: 0.08em;
+    }
+    footer p { font-size: 0.68rem; color: #2A2018; margin-top: 6px; }
+
+    /* ═══════════════ FLOATING SUN ═══════════════ */
+    .float-sun {
+      position: fixed;
+      bottom: 20px; right: 16px;
+      width: 46px; height: 46px;
+      background: radial-gradient(circle, #FFE066, #F5A623);
+      border-radius: 50%;
+      box-shadow: 0 0 20px #F5A62350;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      z-index: 100;
+      opacity: 0; transform: scale(0.5);
+      transition: opacity 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .float-sun.on { opacity: 1; transform: scale(1); }
+
+    /* ═══════════════ NAV LINKS ═══════════════ */
+    .nav-links { display: flex; gap: 16px; align-items: center; }
+    .nav-links a {
+      color: #C8A060; text-decoration: none; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    @media (max-width: 560px) { .nav-links { display: none; } }
+
+    /* ═══════════════ ABOUT SECTION ═══════════════ */
+    .about-section {
+      max-width: 900px; margin: 0 auto;
+      padding: 48px 16px 16px;
+    }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--gap); margin-top: 20px;
+    }
+    @media (max-width: 560px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-card {
+      background: #2E1C0C; border: 1px solid #FFFFFF08;
+      border-radius: 18px; overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .about-card:hover { transform: translateY(-4px); box-shadow: 0 16px 50px #C8701030; }
+    .about-img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-bottom: 1px solid #FFFFFF08;
+    }
+    .about-text { padding: 24px; }
+    .about-text h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem; letter-spacing: 0.06em;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .about-text p {
+      font-size: 0.82rem; color: #A89070;
+      line-height: 1.6;
+    }
+    .about-full {
+      grid-column: 1 / -1;
+      background:
+        linear-gradient(135deg, #301C0CDD 0%, #0A0603DD 100%),
+        url('images/place_darmes.webp') center/cover no-repeat;
+      border: 1px solid #FFFFFF12;
+      border-radius: 18px; padding: 32px;
+      display: flex; align-items: center; gap: 28px;
+      position: relative; overflow: hidden;
+    }
+    .about-full .af-emoji { font-size: 3.5rem; flex-shrink: 0; z-index: 1; }
+    .about-full h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem; color: var(--white);
+      letter-spacing: 0.06em;
+    }
+    .about-full > div { position: relative; z-index: 1; }
+    .about-full p { font-size: 0.82rem; color: #D4C0A8; line-height: 1.6; margin-top: 6px; }
+    @media (max-width: 560px) {
+      .about-full { flex-direction: column; text-align: center; gap: 14px; }
+    }
+
+    /* ═══════════════ MAP EMBED ═══════════════ */
+    .map-section {
+      max-width: 900px; margin: 0 auto;
+      padding: 0 16px 16px;
+    }
+    .map-embed {
+      width: 100%; height: 260px;
+      border-radius: 18px; border: 1px solid #FFFFFF08;
+      overflow: hidden; filter: brightness(0.85) contrast(1.1);
+      transition: filter 0.3s;
+    }
+    .map-embed:hover { filter: brightness(1) contrast(1); }
+    .map-embed iframe { width: 100%; height: 100%; border: none; }
+
+    /* ═══════════════ PARTICLE BG ═══════════════ */
+    .particles {
+      position: fixed; inset: 0; z-index: -1;
+      pointer-events: none; overflow: hidden;
+    }
+    .particle {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(circle, #F5C84215, transparent);
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+    /* ═══════════════ MODAL CARTE ═══════════════ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .modal-card {
+      background: #2A1A0A;
+      border: 1px solid #FFFFFF15;
+      border-radius: 28px;
+      width: 100%;
+      max-width: 520px;
+      overflow: hidden;
+      position: relative;
+      transform: scale(0.85) translateY(30px);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    }
+    .modal-overlay.open .modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    /* Image grande dans la modale */
+    .modal-img-wrap {
+      width: 100%;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .modal-img-wrap::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--modal-glow, radial-gradient(circle at 50% 50%, #C8701030, transparent 70%));
+    }
+    .modal-img-wrap img {
+      max-height: 100%;
+      max-width: 75%;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 48px rgba(0,0,0,0.65));
+      position: relative; z-index: 1;
+      transition: transform 0.3s ease;
+    }
+    .modal-img-wrap img:hover { transform: scale(1.04); }
+    .modal-img-wrap .modal-emoji {
+      font-size: 10rem;
+      line-height: 1;
+    }
+
+    /* Texte de la modale */
+    .modal-body {
+      padding: 24px 28px 28px;
+      border-top: 1px solid #FFFFFF0A;
+    }
+    .modal-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.4rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .modal-desc {
+      font-size: 0.88rem;
+      color: #B0906A;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    .modal-tag {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 5px 16px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--modal-tag-bg, #FFFFFF10);
+      color: var(--modal-tag-color, #FFFFFF80);
+      border: 1px solid var(--modal-tag-border, #FFFFFF20);
+    }
+
+    /* Bouton fermer */
+    .modal-close {
+      position: absolute;
+      top: 14px; right: 14px;
+      width: 36px; height: 36px;
+      background: #FFFFFF15;
+      border: none;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 10;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .modal-close:hover { background: #FFFFFF28; transform: scale(1.1); }
+
+    /* Curseur pointer sur les cartes */
+    .bc { cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER STICKY ═══ -->
+  <!-- ═══ PARTICLES ═══ -->
+  <div class="particles" id="particles"></div>
+
+  <header class="top-bar">
+    <div class="top-logo"><span>Manoue</span> Bar</div>
+    <nav class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#about">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:+50942064741" class="top-call">📞 509-4206-4741</a>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="sun"></div>
+    <div class="hero-content">
+      <div class="badge">🇭🇹 Fort-Liberté · Place d'Armes</div>
+      <div class="hero-logo">Manoue<span>Bar</span></div>
+      <div class="hero-sub">Bwè fre, manje cho — louvri chak jou !</div>
+    </div>
+    <div class="scroll-hint">
+      <span>Menu</span>
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ═══ INFO STRIP ═══ -->
+  <div class="info-strip">
+    <div class="info-pill"><span class="icon">🕐</span> Ouvert tous les jours</div>
+    <div class="info-pill"><span class="icon">📍</span> Akote Place d'Armes</div>
+    <div class="info-pill"><span class="icon">🥘</span> Soupe giromon — Dimanche</div>
+  </div>
+
+  <!-- ═══ BENTO PRODUITS ═══ -->
+  <div class="bento-section" id="menu">
+    <div class="section-label">Menu complet</div>
+    <div class="section-title">Ce qu'on sert</div>
+
+    <div class="bento">
+
+      <!-- BARBANCOURT + RHUM — Grande card famille (2×2) -->
+      <div class="bc bc-barb large">
+        <span class="bc-icon" style="display:flex;align-items:flex-end;gap:10px;position:absolute;top:16px;right:16px;">
+          <img src="images/barbancourt_grand.jpg" alt="Barbancourt 15 étoiles" style="height:88%;width:auto;object-fit:contain;filter:drop-shadow(0 6px 24px rgba(0,0,0,0.75));"/>
+          <img src="images/barbancourt_petit.jpg" alt="Barbancourt petit" style="height:82%;width:auto;object-fit:contain;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.65));align-self:flex-end;margin-bottom:8px;"/>
+        </span>
+        <div class="bc-name">Barbancourt</div>
+        <div class="bc-desc">Ti mamit &amp; gran boutèy — fyète distilasyon Ayiti depi 1862</div>
+        <span class="bc-tag">Rhum · Famille Barbancourt</span>
+      </div>
+
+      <!-- PRESTIGE — Tall -->
+      <div class="bc bc-prestige">
+        <span class="bc-icon"><img src="images/prestige.jpg" alt="Prestige" onerror="this.style.display='none';this.parentElement.style.fontSize='4rem';this.parentElement.innerHTML='🍺'"/></span>
+        <div class="bc-name">Prestige</div>
+        <div class="bc-desc">Byè nasyonal Ayiti</div>
+        <span class="bc-tag">Bière</span>
+      </div>
+
+      <!-- COCA-COLA -->
+      <div class="bc bc-coca">
+        <span class="bc-icon"><img src="images/coca.jpg" alt="Coca-Cola" onerror="this.style.display='none';this.parentElement.style.fontSize='4rem';this.parentElement.innerHTML='🥤'"/></span>
+        <div class="bc-name">Coca-Cola</div>
+        <span class="bc-tag">Soda</span>
+      </div>
+
+      <!-- COURONNE -->
+      <div class="bc bc-couronne">
+        <span class="bc-icon"><img src="images/couronne.jpg" alt="Couronne"/></span>
+        <div class="bc-name">Couronne</div>
+        <span class="bc-tag">Soda Haïtien</span>
+      </div>
+
+      <!-- MALTA H -->
+      <div class="bc bc-malta">
+        <span class="bc-icon"><img src="images/malta_h.jpg" alt="Malta H"/></span>
+        <div class="bc-name">Malta H</div>
+        <span class="bc-tag">Sans alcool</span>
+      </div>
+
+      <!-- FANTA -->
+      <div class="bc bc-fanta">
+        <span class="bc-icon"><img src="images/fanta.jpg" alt="Fanta"/></span>
+        <div class="bc-name">Fanta</div>
+        <span class="bc-tag">Soda</span>
+      </div>
+
+      <!-- 7UP -->
+      <div class="bc bc-sevenup">
+        <span class="bc-icon"><img src="images/7up.jpg" alt="7UP"/></span>
+        <div class="bc-name">7UP</div>
+        <span class="bc-tag">Soda</span>
+      </div>
+
+      <!-- ALOÉ -->
+      <div class="bc bc-aloe">
+        <span class="bc-icon"><img src="https://mexmax.com/cdn/shop/files/120800.webp?v=1709207296" alt="Aloé"/></span>
+        <div class="bc-name">Aloé</div>
+        <span class="bc-tag">Naturel</span>
+      </div>
+
+      <!-- KINANM -->
+      <div class="bc bc-kinanm">
+        <span class="bc-icon"><img src="https://images.squarespace-cdn.com/content/v1/694bee427f26aa6627ae1655/7dfadd8d-94ec-4560-b4fb-3266f6b27a17/kinanm-bottle-small.png" alt="Kinanm"/></span>
+        <div class="bc-name">Kinanm</div>
+        <span class="bc-tag">Spiritueux</span>
+      </div>
+
+      <!-- GATORADE -->
+      <div class="bc bc-gatorade">
+        <span class="bc-icon"><img src="images/gatorade.jpg" alt="Gatorade"/></span>
+        <div class="bc-name">Gatorade</div>
+        <span class="bc-tag">Sport</span>
+      </div>
+
+      <!-- EAU -->
+      <div class="bc bc-eau">
+        <span class="bc-icon"><img src="images/eau.jpg" alt="Aquafine Bleue"/></span>
+        <div class="bc-name">Eau</div>
+        <span class="bc-tag">Hydratation</span>
+      </div>
+
+      <!-- EXTRAIT DE MALT — Wide (2 cols) -->
+      <div class="bc bc-malt tall">
+        <span class="bc-icon"><img src="images/malta_h.jpg" alt="Extrait de Malt"/></span>
+        <div class="bc-name">Extrait de Malt</div>
+        <div class="bc-desc">Rich an nouriman ak enèji</div>
+        <span class="bc-tag">Nutritif</span>
+      </div>
+
+      <!-- VIN -->
+      <div class="bc bc-vin">
+        <span class="bc-icon"><img src="images/vin.jpg" alt="Vin"/></span>
+        <div class="bc-name">Vin</div>
+        <span class="bc-tag">Vin</span>
+      </div>
+
+      <!-- SOUPE GIROMON — Full width spécial -->
+      <div class="bc bc-soupe">
+        <span class="bc-icon"><img src="images/soupe_giromon.png" alt="Soupe Giromon" style="width:130px;height:130px;object-fit:cover;border-radius:14px;flex-shrink:0;filter:drop-shadow(0 6px 18px rgba(0,0,0,0.5));"/></span>
+        <div class="soupe-text">
+          <div class="bc-name">Soupe Giromon</div>
+          <div class="bc-desc">Soupe tradisyonèl ayisyen — joumou, piman, vyann, legim. Chak dimanch maten, tou frèch!</div>
+          <span class="sunday-badge">☀ Dimanche matin seulement</span>
+        </div>
+        <span class="bc-tag">Spécialité</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ ABOUT SECTION ═══ -->
+  <div class="about-section" id="about">
+    <div class="section-label">Notre histoire</div>
+    <div class="section-title">Byenveni Lakay Manoue</div>
+    <div class="about-grid">
+      <div class="about-card">
+        <img src="images/ambiance_bar.png" alt="Ambiance Manoue Bar" class="about-img" />
+        <div class="about-text">
+          <h3>🍹 L'ambiance Manoue</h3>
+          <p>Manoue Bar se kote tout moun rankontre nan Fort-Liberté. Yon ti kote trankil akote Place d'Armes kote ou ka bwè yon fre, koze ak zanmi, epi pran yon moman pou ou.</p>
+        </div>
+      </div>
+      <div class="about-card">
+        <img src="images/soupe_giromon.png" alt="Soupe Giromon" class="about-img" />
+        <div class="about-text">
+          <h3>🥘 Soupe Giromon</h3>
+          <p>Chak dimanch maten, Manoue prepare yon soupe giromon tradisyonèl — joumou, vyann, legim, ak tout bon bagay. Vin goute l' tou frèch!</p>
+        </div>
+      </div>
+      <div class="about-full">
+        <div class="af-emoji">🇭🇹</div>
+        <div>
+          <h3>Fyète Fort-Liberté</h3>
+          <p>Sitiye jis akote Place d'Armes, kè vil Fort-Liberté, Manoue Bar se yon enstitisyon nan Nò-dès Ayiti. Depi plizyè ane, nou sèvi kominote a ak pasyon, onètete, ak bwason ki fre tout tan. Pase wè nou — ou pap regrèt sa!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ MAP ═══ -->
+  <div class="map-section">
+    <div class="map-embed">
+      <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-71.8650%2C19.6530%2C-71.8200%2C19.6850&layer=mapnik&marker=19.6660%2C-71.8420"
+        allowfullscreen
+        loading="lazy"
+        title="Place d'Armes — Fort-Liberté, Haïti">
+      </iframe>
+    </div>
+    <div style="text-align:center;margin-top:8px;">
+      <a href="https://www.openstreetmap.org/?mlat=19.666&mlon=-71.842#map=15/19.666/-71.842"
+         target="_blank"
+         style="font-size:0.7rem;color:#6A5A48;text-decoration:none;">
+        📍 Voir sur la carte — Fort-Liberté, Haïti
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ INFO GRID (Localisation + Contact) ═══ -->
+  <div class="info-grid" id="contact">
+
+    <!-- Localisation -->
+    <div class="info-card">
+      <div class="loc-map">
+        <div class="loc-map-grid"></div>
+        <div class="map-pin">
+          <div class="pin-head"></div>
+          <div class="pin-tail"></div>
+        </div>
+      </div>
+      <div class="loc-info">
+        <div class="loc-row">
+          <div class="loc-ico r">📍</div>
+          <div class="loc-txt">
+            <strong>Adresse</strong>
+            <span>Akote Place d'Armes<br/>Fort-Liberté, Nord-Est, Haïti</span>
+          </div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-ico a">🕐</div>
+          <div class="loc-txt">
+            <strong>Horaire</strong>
+            <span>Tous les jours<br/>Soupe giromon : dimanche matin</span>
+          </div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-ico b">🏛️</div>
+          <div class="loc-txt">
+            <strong>Repère</strong>
+            <span>Jis akote Place d'Armes<br/>Ou pa ka rate l' !</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="info-card contact-card">
+      <div>
+        <div class="c-title">Appelé Manoue</div>
+        <div class="c-sub">Disponible sur WhatsApp</div>
+      </div>
+      <a href="tel:+50942064741" class="call-btn">
+        <span class="ring">📞</span> 509 — 4206 — 4741
+      </a>
+      <p class="wa-note">💬 WhatsApp disponible sur ce numéro</p>
+    </div>
+
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="f-logo">Manoue Bar</div>
+    <p style="color:#6A5A48;margin-top:8px;">Fort-Liberté, Nord-Est · 🇭🇹 Haïti · Akote Place d'Armes</p>
+    <p style="margin-top:12px;"><a href="tel:+50942064741" style="color:#C8A060;text-decoration:none;font-weight:700;">📞 509-4206-4741</a></p>
+    <p style="color:#2A2018;margin-top:12px;font-size:0.65rem;">© 2026 Manoue Bar · Tout dwa rezève</p>
+  </footer>
+
+  <!-- ═══ MODAL AGRANDISSEMENT ═══ -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-card" id="modal-card">
+      <button class="modal-close" id="modal-close-btn">✕</button>
+      <div class="modal-img-wrap" id="modal-img-wrap"></div>
+      <div class="modal-body">
+        <div class="modal-name" id="modal-name"></div>
+        <div class="modal-desc" id="modal-desc"></div>
+        <span class="modal-tag" id="modal-tag"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="float-sun" id="fs" onclick="window.scrollTo({top:0,behavior:'smooth'})">☀</div>
+
+  <script>
+    const fs = document.getElementById('fs');
+    window.addEventListener('scroll', () => fs.classList.toggle('on', scrollY > 400));
+
+    // Stagger bento cards on scroll
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0) scale(1)';
+          }, i * 60);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.04 });
+
+    document.querySelectorAll('.bc, .about-card, .about-full, .info-card').forEach(c => {
+      c.style.opacity = '0';
+      c.style.transform = 'translateY(24px) scale(0.97)';
+      c.style.transition = 'opacity 0.4s ease, transform 0.4s ease, box-shadow 0.25s';
+      obs.observe(c);
+    });
+
+    // ═══ SUPPRESSION DU FOND BLANC ═══
+    function removeWhiteBg(img) {
+      function process(image) {
+        try {
+          const W = image.naturalWidth  || image.width  || 300;
+          const H = image.naturalHeight || image.height || 300;
+          const canvas = document.createElement('canvas');
+          canvas.width  = W;
+          canvas.height = H;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(image, 0, 0, W, H);
+          const data = ctx.getImageData(0, 0, W, H);
+          const px   = data.data;
+          for (let i = 0; i < px.length; i += 4) {
+            const r = px[i], g = px[i+1], b = px[i+2];
+            if (r > 235 && g > 228 && b > 218) {
+              px[i+3] = 0;                               // blanc pur → transparent
+            } else if (r > 205 && g > 198 && b > 188) {
+              const t = Math.min((r-205)/30, (g-198)/30, (b-188)/30);
+              px[i+3] = Math.round((1 - t) * px[i+3]);  // bord doux
+            }
+          }
+          ctx.putImageData(data, 0, 0);
+          img.src = canvas.toDataURL('image/png');
+        } catch(e) { /* image cross-origin — on garde l'original */ }
+      }
+      if (img.complete && img.naturalWidth > 0) { process(img); }
+      else { img.addEventListener('load', () => process(img), { once: true }); }
+    }
+
+    // Appliquer à toutes les images produit
+    document.querySelectorAll('.bc-icon img').forEach(removeWhiteBg);
+
+    // ═══ MODAL — Agrandissement au clic ═══
+    const modal        = document.getElementById('modal');
+    const modalImgWrap = document.getElementById('modal-img-wrap');
+    const modalName    = document.getElementById('modal-name');
+    const modalDesc    = document.getElementById('modal-desc');
+    const modalTag     = document.getElementById('modal-tag');
+    const modalCloseBtn= document.getElementById('modal-close-btn');
+
+    function openModal(card) {
+      const imgEl = card.querySelector('.bc-icon img');
+      const name  = (card.querySelector('.bc-name') || {}).innerText || '';
+      const desc  = (card.querySelector('.bc-desc') || {}).innerText || '';
+      const tag   = (card.querySelector('.bc-tag')  || {}).innerText || '';
+
+      // Image ou emoji dans la modale
+      modalImgWrap.innerHTML = '';
+      if (imgEl) {
+        const img = document.createElement('img');
+        img.src = imgEl.src;
+        img.alt = imgEl.alt;
+        modalImgWrap.appendChild(img);
+        removeWhiteBg(img);
+      } else {
+        const iconEl = card.querySelector('.bc-icon');
+        const span = document.createElement('span');
+        span.className = 'modal-emoji';
+        span.innerText = iconEl ? iconEl.innerText.trim() : '🍺';
+        modalImgWrap.appendChild(span);
+      }
+
+      // Couleur de fond glow
+      const glow = getComputedStyle(card).getPropertyValue('--glow').trim();
+      modalImgWrap.style.cssText = '--modal-glow:' + (glow || 'radial-gradient(circle,#C8701030,transparent)');
+
+      // Couleurs du tag
+      const tagEl = card.querySelector('.bc-tag');
+      if (tagEl) {
+        const cs = getComputedStyle(tagEl);
+        modalTag.style.cssText = 'background:' + cs.backgroundColor + ';color:' + cs.color + ';border:1px solid ' + cs.borderColor;
+      }
+
+      modalName.innerText = name;
+      modalDesc.innerText = desc;
+      modalTag.innerText  = tag;
+
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Clic sur l'overlay (fond sombre) pour fermer
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+
+    // Bouton ✕
+    modalCloseBtn.addEventListener('click', closeModal);
+
+    // Touche Échap
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Clic sur chaque carte produit
+    document.querySelectorAll('.bc:not(.bc-soupe)').forEach(function(card) {
+      card.addEventListener('click', function() { openModal(card); });
+    });
+
+    // Floating particles
+    const pCont = document.getElementById('particles');
+    for (let i = 0; i < 15; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 6 + 2;
+      p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;animation-duration:${Math.random()*12+8}s;animation-delay:${Math.random()*8}s;`;
+      pCont.appendChild(p);
+    }
+
+    // Smooth nav scroll
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+      });
+    });
+  </script>
+</body>
+</html>
