@@ -20,7 +20,7 @@
       --red:   #C0392B;
       --amber: #E8A020;
       --gold:  #F5C842;
-      --deep:  #1E1008;
+      --deep:  #3C2010;
       --cream: #FFF5E4;
       --white: #FFFDF7;
       --green: #1A7A40;
@@ -44,7 +44,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 20px;
-      background: #1E1008CC;
+      background: #3C2010CC;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid #FFFFFF0A;
@@ -94,7 +94,7 @@
     .hero-bg::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, #1E100800 20%, #1E100870 60%, #1E1008CC 100%);
+      background: linear-gradient(to bottom, #3C201000 20%, #3C201070 60%, #3C2010CC 100%);
     }
     .sun {
       position: absolute;
@@ -214,25 +214,51 @@
 
     /* ═══════════════ INFO STRIP ═══════════════ */
     .info-strip {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0;
-      background: #2A1A0A;
+      overflow: hidden;
+      background: #4A2A10;
       border-top: 1px solid #FFFFFF0A;
       border-bottom: 1px solid #FFFFFF0A;
+      white-space: nowrap;
+      position: relative;
+    }
+    /* Dégradés de fondu sur les bords */
+    .info-strip::before,
+    .info-strip::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .info-strip::before {
+      left: 0;
+      background: linear-gradient(to right, #4A2A10, transparent);
+    }
+    .info-strip::after {
+      right: 0;
+      background: linear-gradient(to left, #4A2A10, transparent);
+    }
+    .info-track {
+      display: inline-flex;
+      animation: ticker 14s linear infinite;
+    }
+    .info-track:hover { animation-play-state: paused; }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .info-pill {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 14px 24px;
-      font-size: 0.82rem;
+      padding: 14px 32px;
+      font-size: 0.85rem;
       font-weight: 700;
       color: #C8A060;
-      border-right: 1px solid #FFFFFF08;
+      border-right: 1px solid #FFFFFF10;
+      flex-shrink: 0;
     }
-    .info-pill:last-child { border-right: none; }
     .info-pill .icon { font-size: 1.1rem; }
 
     /* ═══════════════ BENTO SECTION ═══════════════ */
@@ -288,7 +314,7 @@
       cursor: default;
       border: 1px solid #FFFFFF08;
       transition: transform 0.25s, box-shadow 0.25s;
-      background: #301C0C;
+      background: #5A3018;
     }
     .bc:hover { transform: translateY(-4px) scale(1.01); }
     .bc::before {
@@ -351,9 +377,9 @@
       content: '';
       position: absolute; inset: 0;
       background: linear-gradient(to right,
-        #301C0CEE 0%,
-        #301C0CCC 38%,
-        #301C0C44 60%,
+        #5A3018EE 0%,
+        #5A3018CC 38%,
+        #5A301844 60%,
         transparent 100%);
       border-radius: 18px;
       z-index: 0;
@@ -523,7 +549,7 @@
     }
 
     .info-card {
-      background: #2E1C0C;
+      background: #4E2C14;
       border: 1px solid #FFFFFF08;
       border-radius: 18px;
       overflow: hidden;
@@ -687,7 +713,7 @@
     }
     @media (max-width: 560px) { .about-grid { grid-template-columns: 1fr; } }
     .about-card {
-      background: #2E1C0C; border: 1px solid #FFFFFF08;
+      background: #4E2C14; border: 1px solid #FFFFFF08;
       border-radius: 18px; overflow: hidden;
       transition: transform 0.25s, box-shadow 0.25s;
     }
@@ -709,7 +735,7 @@
     .about-full {
       grid-column: 1 / -1;
       background:
-        linear-gradient(135deg, #301C0CDD 0%, #0A0603DD 100%),
+        linear-gradient(135deg, #5A3018DD 0%, #0A0603DD 100%),
         url('images/place_darmes.webp') center/cover no-repeat;
       border: 1px solid #FFFFFF12;
       border-radius: 18px; padding: 32px;
@@ -779,7 +805,7 @@
       pointer-events: all;
     }
     .modal-card {
-      background: #2A1A0A;
+      background: #4A2A10;
       border: 1px solid #FFFFFF15;
       border-radius: 28px;
       width: 100%;
@@ -910,9 +936,16 @@
 
   <!-- ═══ INFO STRIP ═══ -->
   <div class="info-strip">
-    <div class="info-pill"><span class="icon">🕐</span> Ouvert tous les jours</div>
-    <div class="info-pill"><span class="icon">📍</span> Akote Place d'Armes</div>
-    <div class="info-pill"><span class="icon">🥘</span> Soupe giromon — Dimanche</div>
+    <div class="info-track">
+      <!-- Série 1 -->
+      <div class="info-pill"><span class="icon">🕐</span> Ouvert tous les jours</div>
+      <div class="info-pill"><span class="icon">📍</span> Akote Place d'Armes — Fort-Liberté</div>
+      <div class="info-pill"><span class="icon">🥘</span> Soupe giromon chaque Dimanche matin</div>
+      <!-- Série 2 (copie identique pour boucle infinie) -->
+      <div class="info-pill"><span class="icon">🕐</span> Ouvert tous les jours</div>
+      <div class="info-pill"><span class="icon">📍</span> Akote Place d'Armes — Fort-Liberté</div>
+      <div class="info-pill"><span class="icon">🥘</span> Soupe giromon chaque Dimanche matin</div>
+    </div>
   </div>
 
   <!-- ═══ BENTO PRODUITS ═══ -->
