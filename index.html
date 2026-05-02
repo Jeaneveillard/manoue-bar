@@ -20,7 +20,7 @@
       --red:   #C0392B;
       --amber: #E8A020;
       --gold:  #F5C842;
-      --deep:  #3C2010;
+      --deep:  #150A05;
       --cream: #FFF5E4;
       --white: #FFFDF7;
       --green: #1A7A40;
@@ -89,12 +89,12 @@
       background-image: url('images/place_darmes.webp');
       background-size: cover;
       background-position: center 35%;
-      filter: brightness(0.72) saturate(1.1);
+      filter: brightness(1) saturate(1.1);
     }
     .hero-bg::after {
       content: '';
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, #3C201000 20%, #3C201070 60%, #3C2010CC 100%);
+      background: linear-gradient(to bottom, transparent 80%, #150A05 100%);
     }
     .sun {
       position: absolute;
@@ -387,7 +387,7 @@
     }
 
     /* Texte limité à gauche, au-dessus du dégradé */
-    .bc-name, .bc-desc, .bc-tag { max-width: 58%; }
+    .bc-name, .bc-desc, .bc-tag { max-width: 58%; pointer-events: none; }
 
     /* ─── Text ─── */
     .bc-name {
@@ -549,8 +549,10 @@
     }
 
     .info-card {
-      background: #4E2C14;
-      border: 1px solid #FFFFFF08;
+      background: rgba(20, 10, 5, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid #FFFFFF10;
       border-radius: 18px;
       overflow: hidden;
     }
@@ -612,7 +614,7 @@
     .loc-ico.a { background: #E8A02018; }
     .loc-ico.b { background: #0B2D6B28; }
     .loc-txt strong { display: block; font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 1px; }
-    .loc-txt span   { font-size: 0.75rem; color: #7A6A58; }
+    .loc-txt span   { font-size: 0.75rem; color: #D4C0A8; }
 
     /* Contact card */
     .contact-card {
@@ -661,11 +663,9 @@
 
     /* ═══════════════ FOOTER ═══════════════ */
     footer {
-      text-align: center;
-      padding: 28px 20px;
-      margin-top: var(--gap);
-      background: #06040200;
-      border-top: 1px solid #FFFFFF06;
+      text-align: center; margin-top: 60px;
+      padding-top: 30px; border-top: 1px solid #FFFFFF15;
+      color: #E0D0C0; font-size: 0.85rem;
     }
     footer .f-logo {
       font-family: 'Bebas Neue', sans-serif;
@@ -673,7 +673,7 @@
       color: var(--amber);
       letter-spacing: 0.08em;
     }
-    footer p { font-size: 0.68rem; color: #2A2018; margin-top: 6px; }
+    footer p { font-size: 0.68rem; color: #5A4A3E; margin-top: 6px; }
 
     /* ═══════════════ FLOATING SUN ═══════════════ */
     .float-sun {
@@ -713,7 +713,10 @@
     }
     @media (max-width: 560px) { .about-grid { grid-template-columns: 1fr; } }
     .about-card {
-      background: #4E2C14; border: 1px solid #FFFFFF08;
+      background: rgba(20, 10, 5, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid #FFFFFF10;
       border-radius: 18px; overflow: hidden;
       transition: transform 0.25s, box-shadow 0.25s;
     }
@@ -734,24 +737,49 @@
     }
     .about-full {
       grid-column: 1 / -1;
-      background:
-        linear-gradient(135deg, #5A3018DD 0%, #0A0603DD 100%),
-        url('images/place_darmes.webp') center/cover no-repeat;
+      background: url('images/entree_fort_liberte.png') center/cover no-repeat;
       border: 1px solid #FFFFFF12;
       border-radius: 18px; padding: 32px;
-      display: flex; align-items: center; gap: 28px;
+      min-height: 420px;
       position: relative; overflow: hidden;
+      display: flex; align-items: flex-end;
     }
-    .about-full .af-emoji { font-size: 3.5rem; flex-shrink: 0; z-index: 1; }
+    .af-wrapper {
+      display: flex; align-items: flex-end; gap: 28px; width: 100%;
+      animation: flagWaveFade 13s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform-origin: left center;
+    }
+    @keyframes flagWaveFade {
+      0%   { opacity: 0; transform: perspective(600px) rotateY(35deg) scale(0.9); filter: blur(3px); }
+      2%   { opacity: 1; transform: perspective(600px) rotateY(-15deg) scale(1.02); filter: blur(0px); }
+      4%   { transform: perspective(600px) rotateY(8deg) scale(1); }
+      7%   { transform: perspective(600px) rotateY(-3deg); }
+      10%  { transform: perspective(600px) rotateY(0deg); }
+      77%  { opacity: 1; transform: perspective(600px) rotateY(0deg); }
+      81%  { opacity: 0; transform: perspective(600px) rotateY(0deg) scale(0.95); }
+      100% { opacity: 0; transform: perspective(600px) rotateY(0deg); }
+    }
+    .about-full .af-emoji { font-size: 3.5rem; flex-shrink: 0; z-index: 1; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.8)); }
     .about-full h3 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem; color: var(--white);
-      letter-spacing: 0.06em;
+      font-size: 2rem; color: var(--gold);
+      letter-spacing: 0.08em;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 4px 16px rgba(0,0,0,0.9);
     }
-    .about-full > div { position: relative; z-index: 1; }
-    .about-full p { font-size: 0.82rem; color: #D4C0A8; line-height: 1.6; margin-top: 6px; }
+    .about-full .af-text-box { 
+      position: relative; 
+      z-index: 1; 
+      background: rgba(20, 10, 5, 0.6); 
+      padding: 16px 20px; 
+      border-radius: 12px; 
+      backdrop-filter: blur(4px);
+    }
+    .about-full p { 
+      font-size: 0.92rem; color: #FFFFFF; font-weight: 800; line-height: 1.6; margin-top: 6px; 
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 4px 12px rgba(0,0,0,0.9);
+    }
     @media (max-width: 560px) {
-      .about-full { flex-direction: column; text-align: center; gap: 14px; }
+      .af-wrapper { flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; gap: 14px; transform-origin: center bottom; }
     }
 
     /* ═══════════════ MAP EMBED ═══════════════ */
@@ -928,10 +956,6 @@
       <div class="hero-logo">Manoue<span>Bar</span></div>
       <div class="hero-sub">Bwè fre, manje cho — louvri chak jou !</div>
     </div>
-    <div class="scroll-hint">
-      <span>Menu</span>
-      <div class="scroll-dot"></div>
-    </div>
   </section>
 
   <!-- ═══ INFO STRIP ═══ -->
@@ -1086,10 +1110,12 @@
         </div>
       </div>
       <div class="about-full">
-        <div class="af-emoji">🇭🇹</div>
-        <div>
-          <h3>Fyète Fort-Liberté</h3>
-          <p>Sitiye jis akote Place d'Armes, kè vil Fort-Liberté, Manoue Bar se yon enstitisyon nan Nò-dès Ayiti. Depi plizyè ane, nou sèvi kominote a ak pasyon, onètete, ak bwason ki fre tout tan. Pase wè nou — ou pap regrèt sa!</p>
+        <div class="af-wrapper">
+          <div class="af-emoji">🇭🇹</div>
+          <div class="af-text-box">
+            <h3>Fyète Fort-Liberté</h3>
+            <p>Sitiye jis akote Place d'Armes, kè vil Fort-Liberté, Manoue Bar se yon enstitisyon nan Nò-dès Ayiti. Depi plizyè ane, nou sèvi kominote a ak pasyon, onètete, ak bwason ki fre tout tan. Pase wè nou — ou pap regrèt sa!</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1168,9 +1194,11 @@
   <!-- ═══ FOOTER ═══ -->
   <footer>
     <div class="f-logo">Manoue Bar</div>
-    <p style="color:#6A5A48;margin-top:8px;">Fort-Liberté, Nord-Est · 🇭🇹 Haïti · Akote Place d'Armes</p>
-    <p style="margin-top:12px;"><a href="tel:+50942064741" style="color:#C8A060;text-decoration:none;font-weight:700;">📞 509-4206-4741</a></p>
-    <p style="color:#2A2018;margin-top:12px;font-size:0.65rem;">© 2026 Manoue Bar · Tout dwa rezève</p>
+    <p style="color:#D4C0A8;margin-top:8px;">Fort-Liberté, Nord-Est · 🇭🇹 Haïti · Akote Place d'Armes</p>
+    <p style="margin-top:12px;"><a href="tel:+50942064741" style="color:var(--gold);text-decoration:none;font-weight:700;">📞 509-4206-4741</a></p>
+    <p style="color:#A99B8B;margin-top:12px;font-size:0.65rem;">
+      © 2026 Manoue Bar · Tout dwa rezève · <a href="#" onclick="openLegalModal(event)" style="color:#D4C0A8;text-decoration:underline;">Mentions Légales</a>
+    </p>
   </footer>
 
   <!-- ═══ MODAL AGRANDISSEMENT ═══ -->
@@ -1182,6 +1210,27 @@
         <div class="modal-name" id="modal-name"></div>
         <div class="modal-desc" id="modal-desc"></div>
         <span class="modal-tag" id="modal-tag"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ MODAL LÉGAL ═══ -->
+  <div class="modal-overlay" id="legal-modal">
+    <div class="modal-card" style="max-width: 600px; padding: 32px; background: #2A180C; max-height: 80vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closeLegalModal()">✕</button>
+      <div style="font-family:'Bebas Neue', sans-serif; font-size:2rem; color:var(--gold); margin-bottom:16px;">⚖️ Mentions Légales & Confidentialité</div>
+      <div style="font-size:0.85rem; color:#D4C0A8; line-height:1.6; text-align:left;">
+        <p><strong>1. Éditeur du site</strong><br/>
+        Manoue Bar, situé à Fort-Liberté, Nord-Est, Haïti (à côté de la Place d'Armes).</p>
+        <br/>
+        <p><strong>2. Propriété Intellectuelle</strong><br/>
+        Tous les éléments de ce site (textes, images) sont la propriété exclusive de Manoue Bar, à l'exception des marques tierces citées (Prestige, Barbancourt, Coca-Cola, etc.) qui appartiennent à leurs propriétaires respectifs.</p>
+        <br/>
+        <p><strong>3. Confidentialité (Cookies)</strong><br/>
+        Ce site ne collecte aucune donnée personnelle à des fins commerciales. Aucun cookie de pistage n'est utilisé. La navigation est privée.</p>
+        <br/>
+        <p><strong>4. Consommation Responsable</strong><br/>
+        L'abus d'alcool est dangereux pour la santé. À consommer avec modération. Vente interdite aux mineurs.</p>
       </div>
     </div>
   </div>
@@ -1253,20 +1302,32 @@
     const modalTag     = document.getElementById('modal-tag');
     const modalCloseBtn= document.getElementById('modal-close-btn');
 
-    function openModal(card) {
-      const imgEl = card.querySelector('.bc-icon img');
+    function openModal(card, clickedImg) {
       const name  = (card.querySelector('.bc-name') || {}).innerText || '';
       const desc  = (card.querySelector('.bc-desc') || {}).innerText || '';
       const tag   = (card.querySelector('.bc-tag')  || {}).innerText || '';
 
+      const allImgs = card.querySelectorAll('.bc-icon img');
+      let targetImgs = [];
+      if (clickedImg && clickedImg.tagName === 'IMG') {
+        targetImgs = [clickedImg];
+      } else if (allImgs.length > 0) {
+        targetImgs = Array.from(allImgs);
+      }
+
       // Image ou emoji dans la modale
       modalImgWrap.innerHTML = '';
-      if (imgEl) {
-        const img = document.createElement('img');
-        img.src = imgEl.src;
-        img.alt = imgEl.alt;
-        modalImgWrap.appendChild(img);
-        removeWhiteBg(img);
+      if (targetImgs.length > 0) {
+        targetImgs.forEach(origImg => {
+          const img = document.createElement('img');
+          img.src = origImg.src;
+          img.alt = origImg.alt;
+          if (targetImgs.length > 1) {
+            img.style.maxWidth = '45%';
+            img.style.margin = '0 10px';
+          }
+          modalImgWrap.appendChild(img);
+        });
       } else {
         const iconEl = card.querySelector('.bc-icon');
         const span = document.createElement('span');
@@ -1314,7 +1375,10 @@
 
     // Clic sur chaque carte produit
     document.querySelectorAll('.bc:not(.bc-soupe)').forEach(function(card) {
-      card.addEventListener('click', function() { openModal(card); });
+      card.addEventListener('click', function(e) { 
+        let clickedImg = e.target.closest('img');
+        openModal(card, clickedImg); 
+      });
     });
 
     // Floating particles
@@ -1333,6 +1397,21 @@
         e.preventDefault();
         document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
       });
+    });
+
+    // ═══ MODAL LÉGAL LOGIC ═══
+    const legalModal = document.getElementById('legal-modal');
+    function openLegalModal(e) {
+      if(e) e.preventDefault();
+      legalModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLegalModal() {
+      legalModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    legalModal.addEventListener('click', function(e) {
+      if (e.target === legalModal) closeLegalModal();
     });
   </script>
 </body>
